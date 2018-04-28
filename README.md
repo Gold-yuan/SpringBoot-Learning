@@ -1,5 +1,5 @@
 # Spring Boot基础教程
-
+转自： https://gitee.com/didispace/SpringBoot-Learning
 本项目内容为Spring Boot教程程序样例。如您觉得该项目对您有用，欢迎点击右上方的**Star**按钮，给予支持！！
 
 - 我的博客：http://blog.didispace.com
@@ -117,20 +117,3 @@
 
 - chapter9-2-1：[Spring Boot中使用Dubbo进行服务治理](https://gitee.com/didispace/SpringBoot-Learning/tree/master/Chapter9-2-1)
 - chapter9-2-2：[Spring Boot与Dubbo中管理服务依赖](https://gitee.com/didispace/SpringBoot-Learning/tree/master/Chapter9-2-2)
-
-## 我的公众号
-
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0105/082137_85109d07_437188.jpeg "在这里输入图片标题")
-
-## 推荐我的书
-
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0416/233656_dd3bce94_437188.png "在这里输入图片标题")
-
-## 开源项目推荐
-
-- 我的《Spring Cloud基础教程》：https://github.com/dyc87112/SpringCloud-Learning
-- 泥瓦匠Spring Boot学习案例：https://git.oschina.net/jeff1993/springboot-learning-example
-
-## 其他推荐
-
-- Spring Boot Reference Guide：http://blog.didispace.com/books/spring-boot-reference/
