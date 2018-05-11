@@ -8,8 +8,8 @@
     src/main/resources/resources
     WEB-INF/META-INF/resources
 ```
-**thymeleaf模板默认目录**
-    src/main/resources/templates 静态html
+**thymeleaf模板默认目录**  
+src/main/resources/templates 静态html
 
 ## 依赖
 maven
