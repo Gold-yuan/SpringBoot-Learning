@@ -76,9 +76,13 @@ public class HelloController {
 ```
 **使用方式： 在需要使用模板的demo.html页面加入**
 ```html
-<div layout:fragment="content">
-    <a>在访问demo.html时，这个div里面的内容就会在layout.html中的content中展示</a>
-</div>
+<html layout:decorator="layout" xmlns:th="http://www.thymeleaf.org">
+    <div>此div将不会展示</div>
+    <div layout:fragment="content">
+                此div将展示
+                在访问demo.html时，这个div里面的内容就会在layout.html中的content中展示
+    </div>
+</html>
 ```
 ### 常用标签：
     @{/} 获取context
