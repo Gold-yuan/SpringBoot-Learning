@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="htmlhead">
+    <meta charset="utf-8"></meta>
+   	<title >认证管理系统</title>
+   	
+	<!-- 字体 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/font-awesome.min.css}"/>
+	
+	<!-- bootstrap基础样式 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/bootstrap.min.css}"/>
+	<!-- jquery dataTables基础样式 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/jquery.dataTables.min.css}"/>
+	<!-- jquery dataTables 集成bootstrap结合样式 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/dataTables.bootstrap.css}"/>
+	<!-- 皮肤 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/css/style.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/model/css/themes/flat-blue.css}"/>
+	<!-- 提示框 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/plugin/toastr/toastr.css}"/>
+	
+	<!-- jquery -->
+	<script type="text/javascript" th:src="@{/model/lib/js/jquery.min.js}" ></script>
+	<!-- bootstrap -->
+	<script type="text/javascript" th:src="@{/model/lib/js/bootstrap.min.js}" ></script>
+	<!-- jquery dataTables -->
+	<script type="text/javascript" th:src="@{/model/lib/js/jquery.dataTables.min.js}" ></script>
+	<!-- jquery dataTables 结合bootstrap -->
+	<script type="text/javascript" th:src="@{/model/lib/js/dataTables.bootstrap.min.js}" ></script>
+	
+	<script type="text/javascript" th:src="@{/model/js/app.js}" ></script>
+	<!-- 提示框 -->
+	<script type="text/javascript" th:src="@{/plugin/toastr/toastr.js}" ></script>
+</head>
+
+<body class="flat-blue">
+	<div class="app-container expanded">
+		<div class="row content-container">
+			<div th:replace="fragments/header :: header">Header</div>
+			<div th:replace="fragments/left :: left">left</div>
+			<div class="container-fluid">
+				<div class="side-body">
+					<div layout:fragment="content" id="content"></div>
+				</div>
+			</div>
+			<div th:replace="fragments/footer :: footer">footer</div>
+    	</div>
+	</div>
+</body>
+</html>

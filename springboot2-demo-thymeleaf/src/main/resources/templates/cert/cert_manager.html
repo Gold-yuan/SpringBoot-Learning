@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+	<!-- 字体 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/font-awesome.min.css}"/>
+	<!-- bootstrap基础样式 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/bootstrap.min.css}"/>
+	<!-- jquery dataTables基础样式 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/jquery.dataTables.min.css}"/>
+	<!-- jquery dataTables 集成bootstrap结合样式 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/model/lib/css/dataTables.bootstrap.css}"/>
+	
+	<!-- jquery -->
+	<script type="text/javascript" th:src="@{/model/lib//js/jquery.min.js}" ></script>
+	<!-- bootstrap -->
+	<script type="text/javascript" th:src="@{/model/lib//js/bootstrap.min.js}" ></script>
+	<!-- jquery dataTables -->
+	<script type="text/javascript" th:src="@{/model/lib//js/jquery.dataTables.min.js}" ></script>
+	<!-- jquery dataTables 结合bootstrap -->
+	<script type="text/javascript" th:src="@{/model/lib//js/dataTables.bootstrap.min.js}" ></script>
+	
+	
+
+
+<title>证书管理系统</title>
+
+<style type="text/css">
+
+.top{
+	padding:8px;
+	position: fixed;
+	top: 0px;
+	height: 50px;
+	width:100%;
+	background-color: #fafafa;
+    box-shadow: 0 0 5px 0 #aaa;
+}
+
+.breadcrumb {
+	font-size: 14px;
+	color: white;
+	background: linear-gradient(to right, #464f80, #7d98b9);
+}
+.mycontent{
+	padding:10px;
+	margin-top: 50px;
+	width: 100%;
+	height: 100%;
+	
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+	var context = '[[@{/cert/certManager/add}]]'
+/*]]>*/
+function goParent(_this){
+	window.parent.location.href=$(_this).attr('data');
+}
+
+</script>
+</head>
+
+<body>
+	<div>
+		<div class="top">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="button" th:data="@{/cert/certManager/add}"
+				class="btn btn-primary" id="applyCert" onclick="goParent(this)">
+				<i class="fa fa-plus"></i>&nbsp;&nbsp;申请证书
+			</button>
+			<button type="button" class="btn btn-primary" id="checkCert">
+				<i class="fa fa-search"></i>&nbsp;&nbsp;查看证书
+			</button>
+			<button type="button" class="btn btn-primary" id="downloadCert">
+				<i class="fa fa-download"></i>&nbsp;&nbsp;下载证书
+			</button>
+			<button type="button" class="btn btn-danger" id="delCert"
+				onclick="delCert()">
+				<i class="fa fa-trash"></i>&nbsp;&nbsp;吊销证书
+			</button>
+		</div>
+		<div class="mycontent">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>证书名称</th>
+						<th>证书类型</th>
+						<th>公钥</th>
+						<th>有效期</th>
+						<th>证书状态</th>
+						<th>注册时间</th>
+					</tr>
+				</thead>
+				<tbody id="tbody">
+				</tbody>
+			</table>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+			<p>填充</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status用来指定log4j本身的打印日志的级别. monitorinterval用于指定log4j自动重新配置的监测间隔时间，单位是s,最小是5s. -->
+<configuration status="error" monitorinterval="10">
+	<!-- 先定义所有的appender -->
+	<!-- Appenders节点，常见的有三种子节点:Console、RollingFile、File. -->
+	<appenders>
+		<!-- 这个输出控制台的配置 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<!-- 控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+			<!-- level:日志输出级别，共有8个级别，按照从低到高为： All < Trace < Debug < Info < Warn < 
+				Error < Fatal < OFF. -->
+			<ThresholdFilter level="INFO" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<!-- 这个都知道是输出日志的格式 -->
+			<PatternLayout
+				pattern="[%-5p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] [%F(%M():%L)]%m%n" />
+		</Console>
+
+		<!-- 文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用 -->
+		<!-- append为TRUE表示消息增加到指定文件中，false表示消息覆盖指定的文件内容，默认值是true -->
+		<File name="Log" fileName="../logs/demo.log" append="true">
+			<ThresholdFilter level="INFO" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout
+				pattern="[%-5p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] [%F(%M():%L)]%m%n" />
+		</File>
+
+		<!-- 添加过滤器ThresholdFilter,可以有选择的输出某个级别以上的类别 onMatch="ACCEPT" onMismatch="DENY"意思是匹配就接受,否则直接拒绝 -->
+		<File name="ERROR" fileName="../logs/demo_error.log">
+			<ThresholdFilter level="error" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout
+				pattern="[%-5p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] [%F(%M():%L)]%m%n" />
+		</File>
+		<!-- 这个会打印出所有的info及以下级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+		<RollingFile name="DebugLog" fileName="../logs/demo_debug.log"
+			filePattern="../logs/$${date:yyyy-MM}/demo_debug_%d{yyyy-MM-dd}-%i.log">
+			<ThresholdFilter level="debug" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<PatternLayout
+				pattern="[%-5p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] [%F(%M():%L)]%m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+		</RollingFile>
+	</appenders>
+
+	<!-- 然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+	<loggers>
+		<!-- 建立一个默认的root的logger -->
+		<!-- Root节点用来指定项目的根日志，如果没有单独指定Logger，那么就会默认使用该Root日志输出 -->
+		<root level="trace">
+			<AppenderRef ref="DebugLog"/>
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="ERROR" />
+			<AppenderRef ref="Log" />
+		</root>
+		<Logger name="debug" additivity="false" level="ALL">
+			<!-- AppenderRef：Logger的子节点，用来指定该日志输出到哪个Appender, 如果没有指定，就会默认继承自Root.如果指定了，那么会在指定的这个Appender和Root的Appender中都会输出， 
+				此时我们可以设置Logger的additivity="false"只在自定义的Appender中进行输出。 -->
+			<AppenderRef ref="DebugLog" level="ALL" />
+		</Logger>
+
+		<!--过滤掉spring和mybatis的一些无用的DEBUG信息 -->
+		<!-- <logger name="org.springframework" level="INFO"></logger> -->
+		<!-- <logger name="org.mybatis" level="INFO"></logger> -->
+	</loggers>
+</configuration>  

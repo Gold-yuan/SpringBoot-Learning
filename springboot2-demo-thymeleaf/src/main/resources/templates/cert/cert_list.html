@@ -1,0 +1,87 @@
+<html layout:decorator="layout" xmlns:th="http://www.thymeleaf.org">
+<div layout:fragment="content">
+<style type="text/css">
+.mytop {
+	padding: 8px;
+	position: fixed;
+	top: 60px;
+	height: 50px;
+	width: 100%;
+	background-color: #fafafa;
+	box-shadow: 0 0 5px 0 #aaa;
+}
+
+.mycontent {
+	margin: 15px;
+	margin-top: 50px;
+	background-color: #fff;
+}
+</style>
+	<div class="mytop">
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" th:data="@{/cert/certManager/add}"
+			class="btn btn-primary" id="applyCert" onclick=" ">
+			<i class="fa fa-plus"></i>&nbsp;&nbsp;申请证书
+		</button>
+		<button type="button" class="btn btn-primary" id="checkCert">
+			<i class="fa fa-search"></i>&nbsp;&nbsp;查看证书
+		</button>
+		<button type="button" class="btn btn-primary" id="downloadCert">
+			<i class="fa fa-download"></i>&nbsp;&nbsp;下载证书
+		</button>
+		<button type="button" class="btn btn-danger" id="delCert"
+			onclick="delCert()">
+			<i class="fa fa-trash"></i>&nbsp;&nbsp;吊销证书
+		</button>
+	</div>
+	<div class="mycontent">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>证书名称</th>
+					<th>证书类型</th>
+					<th>公钥</th>
+					<th>有效期</th>
+					<th>证书状态</th>
+					<th>注册时间</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+		<p>填充12</p>
+		<p>填充23</p>
+		<p>填充34</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+		<p>填充</p>
+	</div>
+	<script type="text/javascript">
+	
+	</script>
+</div>
+</html>

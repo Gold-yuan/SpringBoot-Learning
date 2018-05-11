@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>证书管理系统</title>
+
+
+<style type="text/css">
+body {
+	height: 100%;
+}
+
+.content {
+	height: 100%;
+	width: 95%;
+}
+
+.breadcrumb {
+	font-size: 14px;
+	color: white;
+	background: linear-gradient(to right, #464f80, #7d98b9);
+}
+
+.breadcrumb a {
+	color: #88c8ff;
+}
+</style>
+<script type="text/javascript">
+</script>
+</head>
+
+<body>
+	<div class="content">
+		<form action="/cert-manager/cert/applyCert" method="post" id="form1"
+			class="form-horizontal" role="form" onsubmit="return check()">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">申请者标识(CN)：</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" required="true"
+						name="cn" placeholder="请输入CN" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">申请类型：</label>
+				<div class="col-sm-10">
+					<label class="col-sm-3 control-label" style="text-align: left;">
+						<input type="radio" name="type" onclick="changeType(this)" checked="checked" value="sign" id="sign" />签名证书
+					</label>
+					<label class="col-sm-3 control-label" style="text-align: left;">
+						<input type="radio" name="type" onclick="changeType(this)" value="tls"/>通信证书 
+					</label>
+				</div>
+			</div>
+			<div id="subDiv"></div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">保存</button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-default" onclick="cancel()">取消</button>
+				</div>
+			</div>
+		</form>
+		<div class="hide hidden">
+			<div class="form-group" id="ipDiv">
+				<label class="col-sm-2 control-label">
+					IP/DNS设置： &nbsp;&nbsp;
+					<a href="javascript:"><i class="fa fa-plus" onclick="cloneRow()"></i></a>
+				</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" required="true"
+						name="ipAddr" placeholder="请输入IP地址，如:192.168.0.1"
+						pattern="((25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))" 
+						title="请输入IP地址"/>
+				</div>
+			</div>
+			<div class="form-group" id="adminDiv">
+				<label class="col-sm-2 control-label">是否为管理员证书</label>
+				<div class="col-sm-10">
+					<label class="col-sm-2 control-label" style="text-align: left;">
+						<input type="radio" name="isAdminCert" value="1"/>是
+					</label>
+					<label class="col-sm-2 control-label" style="text-align: left;">
+						<input type="radio" name="isAdminCert" value="0" checked="checked" />否
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

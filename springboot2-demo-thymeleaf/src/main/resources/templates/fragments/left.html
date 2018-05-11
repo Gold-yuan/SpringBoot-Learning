@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- 侧边栏 -->
+	<div class="side-menu sidebar-inverse" th:fragment="left">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="side-menu-container">
+				<!-- 侧边栏头部 -->
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/}" href="#">
+						<div class="icon fa fa-paper-plane"></div>
+						<div class="title">证书管理系统</div>
+					</a>
+					<button type="button"
+						class="navbar-expand-toggle pull-right visible-xs">
+						<i class="fa fa-times icon"></i>
+					</button>
+				</div>
+				<!-- 侧边栏菜单 -->
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/certList}" class="a-menu"
+						href="demo"> <span class="icon fa fa-tachometer"></span><span
+							class="title">证书管理</span>
+					</a></li>
+
+					<li class="panel panel-default dropdown"><a
+						data-toggle="collapse" href="#dropdown-form"> <span
+							class="icon fa fa-file-text-o"></span><span class="title">模板</span>
+					</a> <!-- Dropdown level 1 -->
+						<div id="dropdown-form" class="panel-collapse collapse">
+							<div class="panel-body">
+								<ul class="nav navbar-nav">
+									<li class=""><a th:href="@{/table}" class="a-menu"
+										href="demo2">datatable</a></li>
+									<li><a th:href="@{/html/demo}" class="a-menu" href="demo3">证书列表</a>
+									</li>
+								</ul>
+							</div>
+						</div></li>
+					<li><a href="../license.html"> <span
+							class="icon fa fa-thumbs-o-up"></span><span class="title">License</span>
+					</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</nav>
+	</div>
+</body>
+</html>
+

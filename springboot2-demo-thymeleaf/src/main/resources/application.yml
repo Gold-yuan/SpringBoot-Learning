@@ -1,0 +1,19 @@
+spring: 
+    thymeleaf: 
+        mode: HTML5
+        encoding: UTF-8
+        content-type: text/html
+        cache: false                     # 关闭页面缓存，修改可实时查看
+    data: 
+        mongodb: 
+            uri: mongodb://localhost:27017/test    # mongodb: //name: pass@localhost: 27017/test
+                
+                
+    devtools:
+        restart:
+            additional-paths: src/main/java
+# 新根需空一行            
+server: 
+    port: 9001                           # 端口
+    servlet: 
+        contextPath: /springboot2-demo-thymeleaf    # 项目访问路径             
