@@ -3,22 +3,32 @@
 ## 默认配置
 **Spring Boot默认提供静态资源目录位置需置于classpath下，目录名需符合如下规则：**
 ```
-    src/main/resources/static 静态文件,css、js、img...
-    src/main/resources/public 
-    src/main/resources/resources
-    WEB-INF/META-INF/resources
+src/main/resources/static 静态文件,css、js、img...
+src/main/resources/public 
+src/main/resources/resources
+WEB-INF/META-INF/resources
 ```
-**thymeleaf模板默认目录**  
+**thymeleaf模板默认目录**
+```
 src/main/resources/templates 静态html
+```
 
 ## 依赖
 maven
 ```xml
-<dependency>
+<parent>
     <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-</dependency>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.1.RELEASE</version>
+</parent>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+</dependencies>
 ```
+
 ## 绑定参数
 java 代码，使用Model
 ```java
@@ -49,6 +59,13 @@ public class HelloController {
 ```
 
 ## layout布局使用方式：
+**需在pom.xml添加layout依赖**
+```xml
+<dependency>
+    <groupId>nz.net.ultraq.thymeleaf</groupId>
+    <artifactId>thymeleaf-layout-dialect</artifactId>
+</dependency>
+```
 **在layout.html加入如下：**
 ```html
 <body>
