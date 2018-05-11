@@ -1,22 +1,22 @@
 <html layout:decorator="layout" xmlns:th="http://www.thymeleaf.org">
 <div layout:fragment="content">
-<style type="text/css">
-.mytop {
-	padding: 8px;
-	position: fixed;
-	top: 60px;
-	height: 50px;
-	width: 100%;
-	background-color: #fafafa;
-	box-shadow: 0 0 5px 0 #aaa;
-}
-
-.mycontent {
-	margin: 15px;
-	margin-top: 50px;
-	background-color: #fff;
-}
-</style>
+	<style type="text/css">
+	.mytop {
+		padding: 8px;
+		position: fixed;
+		top: 60px;
+		height: 50px;
+		width: 100%;
+		background-color: #fafafa;
+		box-shadow: 0 0 5px 0 #aaa;
+	}
+	
+	.mycontent {
+		margin: 15px;
+		margin-top: 50px;
+		background-color: #fff;
+	}
+	</style>
 	<div class="mytop">
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<button type="button" th:data="@{/cert/certManager/add}"

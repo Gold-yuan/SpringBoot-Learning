@@ -113,3 +113,14 @@ spring.thymeleaf.suffix=.html  spring.thymeleaf.template-resolver-order= # Order
 ```
 
 
+
+
+
+## 本项目说明
+```
+resources/model :是本项目的前台架构，侧边栏、头部、内容框
+resources/plugin:是本项目前台插件，toastr 弹出警告框
+resources/templates/layout.html:布局
+resources/templates/cert/cert_list.html:使用布局例子
+
+```
